@@ -40,6 +40,14 @@ app.post( '/main', ( request, response ) => {
 	// });
 } );
 
+app.post( '/dst', ( request, response ) => {
+	console.log( 'DST Request: ', request.body );
+} );
+
+app.post( '/payload', ( request, response ) => {
+	console.log( 'Payload Request: ', request.body );
+} );
+
 app.listen( app.get( 'port' ), () => {
 	console.log( `server listening on port : ${app.get( 'port' )}` );
 } );
