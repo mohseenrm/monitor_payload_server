@@ -1,7 +1,6 @@
 const expect = require('chai').expect;
 const queryBuilder = require( '../db/queryBuilder' );
 
-
 describe('queryBuilder test suite', () => {
 	it('sample test', () => {
 		expect(2 + 2).to.be.equal(4);
