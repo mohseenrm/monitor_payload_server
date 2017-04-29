@@ -12,7 +12,7 @@ let app = express();
 app.use( cors() );
 app.use( bodyParser.json() );
 
-app.set( 'port', argv.port || 8080 );
+app.set( 'port', process.env.PORT || argv.port || 8080 );
 
 app.get( '/', ( request, response ) => {
 	response.send( 'hola' );
