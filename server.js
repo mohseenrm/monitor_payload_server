@@ -40,18 +40,46 @@ app.post( '/main', ( request, response ) => {
 	// });
 } );
 
-// SELECT src_port, dst_port, "timestamp", payload, id, length
-// 	FROM public.payloads where dst_port=port order by id desc limit 100;
-
-// SELECT src_port, dst_port, "timestamp", payload, id, length
-// 	FROM public.payloads where length=len order by id desc limit 100;
-
 app.post( '/dst', ( request, response ) => {
 	console.log( 'DST Request: ', request.body.results[0] );
+	pool.connect((err, client, done) => {
+		if(err)
+			return(console.log(`Error fethching client from pool ${err}`));
+		//query here
+		client.query( queryBuilder( request.body ), (err, result) => {
+			done(err);
+
+			if(err)
+				console.log(`error running query ${err}`);
+
+			console.log(result.rows);
+
+			response.json( {
+				data: result.rows
+			} );
+		} );
+	});
 } );
 
 app.post( '/payload', ( request, response ) => {
 	console.log( 'Payload Request: ', request.body );
+	pool.connect((err, client, done) => {
+		if(err)
+			return(console.log(`Error fethching client from pool ${err}`));
+		//query here
+		client.query( queryBuilder( request.body ), (err, result) => {
+			done(err);
+
+			if(err)
+				console.log(`error running query ${err}`);
+
+			console.log(result.rows);
+
+			response.json( {
+				data: result.rows
+			} );
+		} );
+	});
 } );
 
 app.listen( app.get( 'port' ), () => {
