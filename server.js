@@ -40,8 +40,14 @@ app.post( '/main', ( request, response ) => {
 	// });
 } );
 
+// SELECT src_port, dst_port, "timestamp", payload, id, length
+// 	FROM public.payloads where dst_port=port order by id desc limit 100;
+
+// SELECT src_port, dst_port, "timestamp", payload, id, length
+// 	FROM public.payloads where length=len order by id desc limit 100;
+
 app.post( '/dst', ( request, response ) => {
-	console.log( 'DST Request: ', request.body );
+	console.log( 'DST Request: ', request.body.results );
 } );
 
 app.post( '/payload', ( request, response ) => {
