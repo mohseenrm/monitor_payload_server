@@ -47,7 +47,7 @@ app.post( '/main', ( request, response ) => {
 // 	FROM public.payloads where length=len order by id desc limit 100;
 
 app.post( '/dst', ( request, response ) => {
-	console.log( 'DST Request: ', request.body.results );
+	console.log( 'DST Request: ', request.body.results[0] );
 } );
 
 app.post( '/payload', ( request, response ) => {
