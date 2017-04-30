@@ -76,7 +76,7 @@ app.post( '/payload', ( request, response ) => {
 			console.log(result.rows);
 
 			response.json( {
-				data: result.rows
+				db: result.rows
 			} );
 		} );
 	});
