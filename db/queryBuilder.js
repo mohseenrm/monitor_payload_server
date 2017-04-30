@@ -10,13 +10,12 @@ const queryBuilder = ( filters ) => {
 	}
 	else if( filters.type === 'initDST' ){
 		return `SELECT A.dst_port, count(*)
-	FROM (select * from public.payloads order by id desc limit 100) as A group by A.dst_port ;`;
+	FROM (select * from public.payloads order by id desc limit 200) as A group by A.dst_port ;`;
 	}
 	else{
 		return `SELECT A.length, count(*)
-	FROM (select * from public.payloads order by id desc limit 100) as A group by A.length ;`;
+	FROM (select * from public.payloads order by id desc limit 200) as A group by A.length ;`;
 	}
 };
-
 
 module.exports = queryBuilder;
