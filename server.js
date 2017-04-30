@@ -55,7 +55,7 @@ app.post( '/dst', ( request, response ) => {
 			console.log(result.rows);
 
 			response.json( {
-				data: result.rows
+				db: result.rows
 			} );
 		} );
 	});
