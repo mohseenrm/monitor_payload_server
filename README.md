@@ -26,5 +26,5 @@ npm run test:windows
 # Run
 Note: Please run the server first then launch the client
 ```
-npm run express
+npm start
 ```
