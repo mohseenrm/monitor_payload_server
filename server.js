@@ -7,6 +7,7 @@ const argv = require( 'yargs' ).argv,
 const pool = require( path.join( __dirname, 'db', 'poolHandler' ) ),
 	queryBuilder = require( path.join( __dirname, 'db', 'queryBuilder' ) );
 
+//cleanup
 let app = express();
 
 app.use( cors() );
