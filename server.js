@@ -40,7 +40,7 @@ app.post( '/main', ( request, response ) => {
 		});
 	});
 });
-
+// '/dst' route
 app.post( '/dst', ( request, response ) => {
 	console.log( 'DST Request: ', request.body.results[0] );
 	pool.connect(( err, client, done ) => {
